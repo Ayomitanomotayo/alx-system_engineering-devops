@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -mindepth 1 -type d -name '.*'
+count=0; for dir in $(find . -mindepth 1 -type d -name '.*' -o \( ! -path . -a ! -path .. \) ); do ((count++)); done; echo "Total directories and subdirectories (including hidden): $count"
